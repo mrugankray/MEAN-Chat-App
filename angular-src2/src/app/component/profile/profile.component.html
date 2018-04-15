@@ -1,0 +1,35 @@
+<form (submit)='onSubmit()'>
+  <div *ngIf='user'>
+    <div>
+      <h2 class='page-header'>Name: {{user.name}}</h2>
+      <ul>
+        <li class='list-group-item' *ngIf='!this.toggle'>Email: {{user.email}}</li>
+        <li class='list-group-item'>Username: {{user.username}}</li>
+        <li class='list-group-item' *ngIf='!this.toggle'>User_Id: {{user._id}}</li>
+      </ul>
+      <h4 *ngIf='this.toggle'>Change profile pic</h4>
+      <input type="file" *ngIf='this.toggle' (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+      <!--<button type="button" *ngIf='this.toggle' (click)="upload()">Upload</button>-->
+      <ul *ngIf='this.toggle'>
+        <li class='list-group-item'>
+          <p>Old username/Email:</p>
+          <p>{{user.email}}</p>
+          <p>Edit Username/Email: &nbsp;</p>
+          <input [(ngModel)]='newUserEmail' name="newUserEmail" placeholder="Email">
+        </li>
+        <p>Edit Bio</p>
+        <br>
+        <li><textarea class="form-control" [(ngModel)]="newUserBio" name='newUserBio'></textarea></li>
+      </ul>
+      <ul>
+        <li *ngIf='!user' class='list-group-item'>Loading please wait.....</li>
+      </ul>
+      <ul>
+        <li class='list-group-item' *ngIf='!this.toggle' (click)='edit()'><button class='btn btn-primary'>Edit profile</button></li>
+      </ul>
+      <ul>
+        <li class='list-group-item' *ngIf='this.toggle' ><button class='btn btn-success' value='submit'>Save changes</button></li>
+      </ul>
+    </div>
+  </div>
+</form>

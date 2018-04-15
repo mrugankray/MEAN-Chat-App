@@ -1,0 +1,11 @@
+<form (submit)='onLoginSubmit()'>
+  <div class="form-group">
+    <label for="exampleusername">Username</label>
+    <input type="text" class="form-control" [(ngModel)]='username' name="username" id="exampleUserName" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" [(ngModel)]='password' name="password" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary" value='submit'>login</button>
+</form>

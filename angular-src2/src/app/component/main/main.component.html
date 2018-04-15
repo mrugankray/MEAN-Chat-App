@@ -1,0 +1,29 @@
+<div>
+  <table *ngFor='let tweets of datasFromDatabase'>
+    <tr>
+      <td *ngIf='incomingPosts'><a (click)='setNewPosts()'>You have {{difference}} new posts</a><td>
+      <td>
+        <p>{{tweets.name}}</p>
+        <img src="{{tweets.image}}">
+      </td>
+      <td>
+        {{tweets.date | date:'fullDate'}}
+        <br>
+        tweets: {{tweets.tweet}}
+        image: {{tweets.image}}
+      </td>
+    </tr>
+  </table>
+
+  <form (submit)='testSend()'>
+    <input class='chatInput'
+          [(ngModel)]='message' name="message"
+          (keydown)='handleSubmit($event)'
+    >
+
+    <button class='chatButton'
+
+          value='submit'
+    >send</button>
+  </form>
+</div>
